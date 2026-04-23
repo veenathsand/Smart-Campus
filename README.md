@@ -1,4 +1,4 @@
-## Sensor and Room Management API Smart Campus
+# Sensor and Room Management API Smart Campus
 
 A JAX-RS(Jersey 2.41) based RESTful API, deployed on Apache Tomcat server to 
 administer university campus rooms and IoT sensors.
@@ -123,34 +123,34 @@ http://localhost:8080/smart-campus/api/v1
 
 ## Sample curl Commands
 
-# 1. Get API discovery information
+### 1. Get API discovery information
 curl http://localhost:8080/smart-campus/api/v1
 
-# 2. Get all rooms
+### 2. Get all rooms
 curl http://localhost:8080/smart-campus/api/v1/rooms
 
-# 3. Create a new room
+### 3. Create a new room
 curl -X POST http://localhost:8080/smart-campus/api/v1/rooms \
   -H "Content-Type: application/json" \
   -d '{"id":"CONF-01","name":"Conference Room","capacity":20}'
 
-# 4. Get sensors filtered by type
+### 4. Get sensors filtered by type
 curl "http://localhost:8080/smart-campus/api/v1/sensors?type=Temperature"
 
-# 5. Add a sensor reading
+### 5. Add a sensor reading
 curl -X POST http://localhost:8080/smart-campus/api/v1/sensors/TEMP-001/readings \
   -H "Content-Type: application/json" \
   -d '{"value":24.3}'
 
-# 6. Try deleting a room that has sensors (expect 409)
+### 6. Try deleting a room that has sensors (expect 409)
 curl -X DELETE http://localhost:8080/smart-campus/api/v1/rooms/LIB-301
 
-# 7. Register a sensor with a non-existent room (expect 422)
+### 7. Register a sensor with a non-existent room (expect 422)
 curl -X POST http://localhost:8080/smart-campus/api/v1/sensors \
   -H "Content-Type: application/json" \
   -d '{"id":"TEST-001","type":"CO2","status":"ACTIVE","currentValue":0,"roomId":"FAKE-999"}'
 
-# 8. Post a reading to a MAINTENANCE sensor (expect 403)
+### 8. Post a reading to a MAINTENANCE sensor (expect 403)
 curl -X POST http://localhost:8080/smart-campus/api/v1/sensors/OCC-001/readings \
   -H "Content-Type: application/json" \
   -d '{"value":10}'
