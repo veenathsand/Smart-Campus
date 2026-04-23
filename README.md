@@ -1,4 +1,4 @@
-**Sensor and Room Management API Smart Campus**
+## Sensor and Room Management API Smart Campus
 
 A JAX-RS(Jersey 2.41) based RESTful API, with an embedded Grizzly HTTP server to administer uniersty campus rooms and IoT sensors.
 
